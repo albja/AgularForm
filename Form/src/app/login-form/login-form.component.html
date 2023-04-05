@@ -1,0 +1,49 @@
+<form
+  #myTopForm="ngForm"
+  (ngSubmit)="myTopForm.valid && submitForm() && myTopForm.resetForm()"
+>
+  <label> Form submitted ? {{ myTopForm.submitted }}</label>
+  <label> Form valid ? {{ myTopForm.valid }}</label>
+  <label>Form invalid ? {{ myTopForm.invalid }} </label><br /><br />
+  <label for="email">Email:</label>
+  <input
+    name="email"
+    id="email"
+    type="text"
+    [(ngModel)]="email"
+    required
+    email
+    maxlength="255"
+    #emailRef="ngModel"
+  />
+  <br /><br />
+  <label>Password:</label>
+  <input
+    type="text"
+    name="password"
+    id="passsword"
+    [(ngModel)]="password"
+    required
+    minlength="6"
+    #passwordRef="ngModel"
+  />
+  <br /><br />
+  <button>Soumettre</button>
+  <br /><br />
+  <div *ngIf="myTopForm.submitted">
+    <div *ngIf="emailRef.errors && myTopForm.submitted">
+      <span *ngIf="emailRef.errors['required']">Le champ mail est requis</span>
+      <span *ngIf="emailRef.errors['email']">L'email doit être valide</span>
+    </div>
+    <br />
+    <div *ngIf="passwordRef.errors && myTopForm.submitted">
+      <span *ngIf="passwordRef.errors['required']"
+        >Le passsword est requis</span
+      >
+      <span *ngIf="passwordRef.errors['minlength']"
+        >Le mot de passe doit contenir 6 caractères minimum</span
+      >
+    </div>
+  </div>
+  <div *ngIf="myTopForm.submitted && myTopForm.valid">Login Validé</div>
+</form>

@@ -1,0 +1,16 @@
+* {
+  font-size: larger;
+}
+
+input {
+  display: inline-block;
+  width: 30rem;
+}
+
+label {
+  display: block;
+}
+
+input.ng-invalid.ng-dirty {
+  border: solid 3px red;
+}
