@@ -1,5 +1,5 @@
 * {
-  font-size: larger;
+  font-size: 1.5rem;
 }
 
 input {
@@ -12,5 +12,5 @@ label {
 }
 
 input.ng-invalid.ng-dirty {
-  border: solid 3px red;
+  border: solid 4px red;
 }
